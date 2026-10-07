@@ -1,0 +1,311 @@
+% Siegel 定理证明版
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{ctex}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{proposition}{命题}
+\newtheorem{remark}{注}
+
+\newcommand{\OK}{\mathcal O_K}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Norm}{N_{K/\Q}}
+
+\title{IMO 1988 第 6 题的推广的证明}
+\date{}
+\begin{document}
+\maketitle
+
+\section{命题陈述}
+
+设 \(K\) 是全实数域，\(\OK\) 为其整数环。
+固定一个实嵌入 \(K\hookrightarrow\mathbb R\)，称为恒等嵌入。
+对 \(x\in\OK\)，若其在该嵌入下的像为正，则记 \(x>0\)。
+
+考虑性质
+\[
+(P_K):\qquad
+\forall a,b\in\OK,\quad
+a,b>0,\quad ab+1\mid a^2+b^2
+\Longrightarrow
+\frac{a^2+b^2}{ab+1}\in \OK^2.
+\]
+
+我们证明：
+\[
+(P_K)\quad\Longleftrightarrow\quad K=\Q.
+\]
+
+蕴含 \(K=\Q\Rightarrow(P_K)\) 正是经典的 IMO 1988 第 6 题。
+新的方向用 Siegel 定理证明。
+
+\section{关键的单位构造}
+
+设 \(u\in\OK^\times\) 是一个单位。令
+\[
+a=u^2-1,\qquad b=u^2+1.
+\]
+则
+\begin{align*}
+ab+1
+&=(u^2-1)(u^2+1)+1\\
+&=u^4,
+\end{align*}
+因此
+\[
+ab+1\mid a^2+b^2.
+\]
+更精确地，
+\begin{align*}
+a^2+b^2
+&=(u^2-1)^2+(u^2+1)^2\\
+&=2(u^4+1).
+\end{align*}
+因此 \((P_K)\) 中的商为
+\[
+q_u
+=
+\frac{a^2+b^2}{ab+1}
+=
+2(1+u^{-4}).
+\]
+
+由于 \(u^4=(u^2)^2\) 本身在 \(\OK\) 中就是平方，我们有
+\[
+q_u\in\OK^2
+\quad\Longleftrightarrow\quad
+2(u^4+1)\in\OK^2.
+\]
+确实，
+\[
+q_u=z^2
+\Longrightarrow
+2(u^4+1)=u^4z^2=(u^2z)^2,
+\]
+反之
+\[
+2(u^4+1)=w^2
+\Longrightarrow
+q_u=(wu^{-2})^2.
+\]
+
+因此，不能产生反例的单位恰好就是仿射曲线
+\[
+C:\qquad w^2=2(u^4+1)
+\]
+上的整点。
+
+\section{相关的仿射曲线}
+
+考虑
+\[
+f(u)=2(u^4+1)\in K[u].
+\]
+在 \(\overline K\) 上，该多项式有四个互异根，因为
+\[
+f'(u)=8u^3
+\]
+而 \(u=0\) 不是 \(f\) 的根。
+因此仿射曲线
+\[
+C:\quad w^2=f(u)
+\]
+是非奇异的。
+
+其光滑射影完备化 \(\widetilde C\) 是一条四次超椭圆曲线。
+对于无平方因子的 \(2g+2\) 次多项式，相应的光滑射影曲线亏格为 \(g\)。因此
+\[
+\deg f=4
+\qquad\Longrightarrow\qquad
+g(\widetilde C)=1.
+\]
+
+因此 \(C\) 是一条正亏格的仿射曲线。
+
+由 Siegel 定理， \(\widetilde C\) 上在 \(\OK\) 上的整点有限
+
+即只有有限多个 \(u\in\OK\) 使得
+\[
+2(u^4+1)
+\]
+是 \(\OK\) 中的平方。
+
+定义
+\[
+E=
+\left\{
+u\in\OK^\times:
+2(u^4+1)\in\OK^2
+\right\}.
+\]
+则
+\[
+E\text{ 是有限集}.
+\]
+
+\section{无穷多个合适的单位}
+
+现在假设
+\[
+K\neq\Q.
+\]
+由于 \(K\) 是全实数域，
+\[
+[K:\Q]=n>1.
+\]
+Dirichlet 单位定理给出
+\[
+\operatorname{rank}\OK^\times=r_1+r_2-1=n-1>0.
+\]
+所以 \(\mathbb Z\) 是 \(\OK^\times\) 的子群，因此 \(\OK^\times\) 是无限群。
+
+取一个无穷阶单位 \(v\)。若 \(v\) 在有些实嵌入下不为正，由嵌入的性质，用 \(v^2\) 代替 \(v\) 即可在所有实嵌入下为正。
+由于 \(v\) 是无穷阶单位，所以不存在正整数 \(m\)，使得 \(v^m=1\)，所以在恒等嵌入下的绝对值不被迫为 \(1\)。
+若 \(|v|>1\)，则幂 \(v^m\) 给出任意大的正单位。若 \(|v|<1\)，则改用 \(v^{-1}\)。
+
+因此有无穷多个单位
+\[
+u\in\OK^\times
+\]
+满足
+\[
+u>1.
+\]
+
+由于 \(E\) 有限，我们可以选取
+\[
+u\in\OK^\times,\qquad
+u>1,\qquad
+u\notin E.
+\]
+
+\section{反例的构造}
+
+对这个单位 \(u\)，定义
+\[
+a=u^2-1,\qquad b=u^2+1.
+\]
+因为 \(u>1\)，
+\[
+a>0,\qquad b>0.
+\]
+此外，
+\[
+ab+1=u^4,
+\]
+所以当然有
+\[
+ab+1\mid a^2+b^2.
+\]
+
+相应的商为
+\[
+\frac{a^2+b^2}{ab+1}
+=
+2(1+u^{-4}).
+\]
+若这个商在 \(\OK\) 中是平方，则如上所示，
+\[
+2(u^4+1)
+\]
+将是 \(\OK\) 中的平方。这将蕴含
+\[
+u\in E,
+\]
+与 \(u\) 的选取矛盾。
+
+因此
+\[
+\frac{a^2+b^2}{ab+1}\notin\OK^2.
+\]
+于是 \((P_K)\) 不成立。
+
+我们证明了
+\[
+K\neq\Q
+\quad\Longrightarrow\quad
+\neg(P_K).
+\]
+
+\section{有理数情形}
+
+当 \(K=\Q\) 时，\(\OK=\mathbb Z\)。此时 \((P_K)\) 恰好就是经典的 IMO 1988 第 6 题：
+\[
+a,b\in\mathbb Z_{>0},\quad ab+1\mid a^2+b^2
+\quad\Longrightarrow\quad
+\frac{a^2+b^2}{ab+1}\in\OK^2.
+\]
+下面给出韦达跳跃证明。
+
+设 \(a,b\in\mathbb Z_{>0}\) 满足 \(ab+1\mid a^2+b^2\)，令
+\[
+k=\frac{a^2+b^2}{ab+1}\in\mathbb Z_{>0}.
+\]
+则
+\[
+a^2+b^2=k(ab+1).
+\]
+假设 \(k\) 不是完全平方。在所有满足上式且 \(k\) 非平方的正整数对 \((a,b)\) 中，取 \(a+b\) 最小的一对，并不妨设 \(a\ge b\)。
+
+将上式看作关于 \(x\) 的二次方程
+\[
+x^2-kbx+(b^2-k)=0.
+\]
+它有一个根 \(x=a\)。设另一根为 \(a'\)。由韦达定理，
+\[
+a+a'=kb,\qquad aa'=b^2-k.
+\]
+因此
+\[
+a'=kb-a\in\mathbb Z,\qquad a'=\frac{b^2-k}{a}.
+\]
+
+若 \(a'<0\)，则 \(a'\le -1\)，从而
+\[
+b^2-k=aa'\le -a,
+\]
+即 \(k\ge a+b^2\)。另一方面，由 \(a\ge b\ge1\)，
+\[
+k=\frac{a^2+b^2}{ab+1}
+<\frac{a^2+b^2}{ab}
+=\frac ab+\frac ba
+\le \frac ab+1
+\le a+1.
+\]
+于是 \(k\le a\)，这与 \(k\ge a+b^2\) 矛盾。故 \(a'\ge0\)。
+
+又
+\[
+a'=kb-a<\left(\frac ab+1\right)b-a=b,
+\]
+而 \(a\ge b\)，所以 \(a'<b\le a\)。若 \(a'=0\)，则
+\[
+aa'=b^2-k=0,
+\]
+故 \(k=b^2\) 为完全平方，矛盾；因此 \(a'>0\)。
+
+于是 \((a',b)\) 也是满足条件的正整数对，且对应商仍为 \(k\)，但
+\[
+a'+b<a+b,
+\]
+这与 \((a,b)\) 的最小性矛盾。因此 \(k\) 必为完全平方数。
+因此
+\[
+(P_{\Q})\text{ 成立}.
+\]
+
+合并两个方向得到
+\[
+\OK\text{ 具有 }(P_K)
+\iff
+K=\Q.
+\]
+
+\end{document}
