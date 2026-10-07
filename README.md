@@ -1,8 +1,7 @@
 # 数学证明：关于1988IMO在代数整数环上的推广的证明
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) -->
-
+[![DOI](https://zenodo.org/badge/1408949586.svg)](https://doi.org/10.5281/zenodo.23217938)
 ## 简介
 
 本仓库包含一份由作者独立完成的中文数学证明。
